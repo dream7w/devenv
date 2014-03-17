@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/wordlists
+END
+k+r.list
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/wordlists/k+r.list
+END
+german.list
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/wordlists/german.list
+END
+stl_index.list
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/wordlists/stl_index.list
+END
+c-c++-keywords.list
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/wordlists/c-c++-keywords.list
+END
+xforms.list
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/wordlists/xforms.list
+END

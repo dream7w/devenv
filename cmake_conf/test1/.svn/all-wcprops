@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/zfactory/!svn/ver/80/devenv/cmake_conf/test1
+END
+test1.cc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/zfactory/!svn/ver/80/devenv/cmake_conf/test1/test1.cc
+END
+test2.cc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/zfactory/!svn/ver/80/devenv/cmake_conf/test1/test2.cc
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/zfactory/!svn/ver/80/devenv/cmake_conf/test1/CMakeLists.txt
+END

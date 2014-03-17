@@ -1,0 +1,3 @@
+AUTOMAKE_OPTIONS=foreign
+noinst_LTLIBRARIES=libzbase.la
+libzbase_la_SOURCES=performance_analyzer.cc

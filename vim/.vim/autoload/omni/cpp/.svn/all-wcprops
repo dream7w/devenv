@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp
+END
+includes.vim
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp/includes.vim
+END
+complete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp/complete.vim
+END
+tokenizer.vim
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp/tokenizer.vim
+END
+maycomplete.vim
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp/maycomplete.vim
+END
+namespaces.vim
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp/namespaces.vim
+END
+settings.vim
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp/settings.vim
+END
+utils.vim
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp/utils.vim
+END
+items.vim
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/zfactory/!svn/ver/10/devenv/vim/.vim/autoload/omni/cpp/items.vim
+END
