@@ -45,6 +45,7 @@ set nocompatible              " be iMproved
 ""nb Bundle 'snipMate'
 ""nb Bundle 'SuperTab'
 "nb Bundle 'OmniCppComplete'
+"filetype plugin indent on     " required!
 "
 " Brief help
 " :"nb BundleList          - list configured bundles
@@ -57,9 +58,17 @@ set nocompatible              " be iMproved
 " "nb Bundle End====================================================================
 
 
+"==============go lang setting
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+"==============go lang setting end
 
 
 " zdf comm setting
+filetype plugin on
 set encoding=utf-8
 set fileencoding=utf-8
 
@@ -209,7 +218,6 @@ let OmniCpp_GlobalScopeSearch=1
 let OmniCpp_DisplayMode=1
 let OmniCpp_DefaultNamespaces=["std"]
 
-filetype plugin indent on     " required!
 
 
 
