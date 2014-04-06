@@ -128,7 +128,7 @@ set completeopt=menu,menuone,longest
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 " ctags
-map <F2> :!./mk_tags<CR>
+map <F2> :!~/.vim/mk_tags<CR>
 " add stl sys tags
 set tags+=~/.vim/tags/cpp_src_tags
 set tags+=~/.vim/tags/systags
