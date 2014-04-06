@@ -2,41 +2,86 @@
 "  @Author      : zabambo
 "  @File        : .vimrc
 "  @Encoding    : utf-8
-"  @Creat       : 2013-12-25 20:47:10
-"  @Modified    : 2013-12-25 20:47:10
+"  @Create      : 2014-04-06 04:06:20
+"  @Modified    : 2014-04-06 04:06:20
 "  @Description : 
 "==========================================
 
-" Bundle Start====================================================================
 
-set nocompatible              " be iMproved
-filetype off                  " required!
 
+" Vundle start=======================
+" Install 
+" 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
-" My bundles here:
-"
-" original repos on GitHub
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-" non-GitHub repos
-Bundle 'git://git.wincent.com/command-t.git'
-" Git repos on your local machine (i.e. when working on your own plugin)
-" Bundle 'file:///Users/gmarik/path/to/plugin'
-" ...
+Plugin 'gmarik/vundle'
+" Your plugins here
+" Bundle后的插件名称来自于http://vim-scripts.org/vim/scripts.html的Name列
+Bundle 'taglist.vim'
+Bundle 'winmanager'
+Bundle 'grep.vim'
+Bundle 'minibufexpl.vim'
+" c++--------------------------------------
+Bundle 'a.vim'
+Bundle 'neocomplcache'
+Bundle 'OmniCppComplete'
 
 
-" zdf comm setting
+"go lang------------------------------------
+" To install godef:
+"   go get code.google.com/p/rog-go/exp/cmd/godef
+Bundle 'dgryski/vim-godef'
+
+" To install gocode:
+"   go get github.com/nsf/gocode
+Bundle 'Blackrush/vim-gocode'
+
+" To install golint:
+"   go get github.com/golang/lint/golint
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
+" To install gotags:
+"   go get github.com/jstemmer/gotags
+Bundle 'majutsushi/tagbar'
+
+
+
+filetype plugin indent on     " required
+
+" Use
+" 	ReLaunch vim
+" 	BundleInstall
+" 	BundleUpdate
+" 	BundleClean
+" Put your stuff after this line
+" Vundle end=======================
+
+
+
+" Plugin Settings Start======================
+" 'taglist.vim'
+" 'winmanager'
+" for file list
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<CR>
+
+" 'grep.vim'
+" for search
+map <F3> :Rgrep<CR>
+
+" 'minibufexpl.vim'
+" for top buff list
+let g:miniBufExplMapWindowNavVim=1
+
+
+" Plugin Settings End======================
+
+
+
+
+" Zdf Common Setting Start========================
 set encoding=utf-8
 set fileencoding=utf-8
 
@@ -75,23 +120,6 @@ inoremap <C-b> <Backspace>
 "inoremap <C-k> <Up>
 "inoremap <C-l> <Right>
 
-
-" Only do this part when compiled with support for autocommands
-if has("autocmd")
-  augroup redhat
-    " In text files, always limit the width of text to 78 characters
-    autocmd BufRead *.txt set tw=78
-    " When editing a file, always jump to the last cursor position
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
-  augroup END
-endif
-
-
-
-" ----------------------
 " 总是显示状态行
 set laststatus=2
 "禁止生成临时文件
@@ -99,132 +127,6 @@ set nobackup
 set noswapfile
 "粘贴模式
 :set pastetoggle=<F11> 
-"打开文件类型检测, 加了这句才可以用智能补全
-set completeopt=menu,menuone,longest
-
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-
-" ctags
-map <F2> :!./mk_tags<CR>
-" add stl sys tags
-set tags+=~/.vim/tags/cpp_src_tags
-set tags+=~/.vim/tags/systags
-
-if has("cscope") && filereadable("/usr/bin/cscope")
-	set csprg=/usr/bin/cscope
-	set csto=0
-   	set cst
-   	set nocsverb
-   	" add any database in current directory
-   	if filereadable("cscope.out")
-      		cs add cscope.out
-   	" else add database pointed to by environment
-   	elseif $CSCOPE_DB != ""
-      		cs add $CSCOPE_DB
-   	endif
-   	set csverb
-endif
-
-" s 查找符号 g 查找定义 c 查找调用本函数的函数 t 查找字符串
-" e egrep查找 f 查找文件 i 查找包含本文件的文件 d 查找本函数调用的函数
-nmap fs :cs find s <C-R>=expand("<cword>")<CR><CR> :cw<CR>
-nmap fg :cs find g <C-R>=expand("<cword>")<CR><CR> :cw<CR>
-nmap fc :cs find c <C-R>=expand("<cword>")<CR><CR> :cw<CR>
-nmap ft :cs find t <C-R>=expand("<cword>")<CR><CR> :cw<CR>
-nmap fe :cs find e <C-R>=expand("<cword>")<CR><CR> :cw<CR>
-nmap ff :cs find f <C-R>=expand("<cword>")<CR><CR> :cw<CR>
-"nmap fi :cs find i <C-R>=expand("<cword>")<CR><CR> :cw<CR>
-nmap fi :cs find i ^<C-R>=expand("<cword>")<CR>$<CR> :cw<CR>
-nmap fd :cs find d <C-R>=expand("<cword>")<CR><CR> :cw<CR>
-
-
-
-
-
-
-
-
-
-" zdf need plugin
-Bundle 'taglist.vim'
-Bundle 'winmanager'
-let g:winManagerWindowLayout='FileExplorer|TagList'
-nmap wm :WMToggle<CR>
-
-Bundle 'a.vim'
-map <F12> :A<CR>
-
-Bundle 'grep.vim'
-map <F3> :Rgrep<CR>
-
-Bundle 'minibufexpl.vim'
-let g:miniBufExplMapWindowNavVim=1
-
-Bundle 'neocomplcache'
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-
-"Bundle 'snipMate'
-"Bundle 'SuperTab'
-" 0 - 不记录上次的补全方式
-" 1 - 记住上次的补全方式,直到用其他的补全命令改变它
-" 2 - 记住上次的补全方式,直到按ESC退出插入模式为止
-"let g:SuperTabRetainCompletionType=2
-" 设置按下<Tab>后默认的补全方式, 默认是<C-P>, 现在改为<C-X><C-O>
-"let g:SuperTabDefaultCompletionType="<C-X><C-O>"
-
-Bundle 'OmniCppComplete'
-let OmniCpp_MayCompleteDot = 1 " autocomplete with .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
-let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
-let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
-let OmniCpp_ShowScopeInAbbr = 1 " show scope in abbreviation and remove the last column
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
-let OmniCpp_ShowAccess = 1 " show access
-let OmniCpp_GlobalScopeSearch=1
-let OmniCpp_DisplayMode=1
-let OmniCpp_DefaultNamespaces=["std"]
-
-filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
-" Bundle End====================================================================
-
-
-
-
-
-
-
-
-
-
-
-" pair
-":inoremap ( ()
-":inoremap ) =ClosePair(')')
-":inoremap { {}
-":inoremap } =ClosePair('}')
-":inoremap [ []
-":inoremap ] =ClosePair(']')
-":inoremap < <>
-":inoremap > =ClosePair('>')
-"function ClosePair(char)
-"  if getline('.')[col('.') - 1] == a:char
-"    return ""
-"  else
-"    return a:char
-"  endif
-"endf
-
 
 
 ""定义函数SetTitle，自动插入文件头  
@@ -263,5 +165,99 @@ autocmd FileWritePre,BufWritePre *.cc,*.h,*.cpp,*.hpp,*.inl call DateModified()
 
 
 
-"commands
-"'gf': go to file
+
+" Zdf Common Setting End========================
+
+
+
+
+" C++ Setting Start========================
+"打开文件类型检测, 加了这句才可以用智能补全
+set completeopt=menu,menuone,longest
+" ctags
+map <F2> :!~/.vim/mk_tags<CR>
+" add stl sys tags
+set tags+=~/.vim/tags/cpp_src_tags
+set tags+=~/.vim/tags/systags
+
+" 'a.vim'
+" for .h .cc switch
+map <F12> :A<CR>
+
+" 'neocomplcache'
+" for auto complete
+let g:acp_enableAtStartup = 0
+let g:neocomplcache_enable_at_startup = 1
+
+
+" 'OmniCppComplete'
+" for auto complete
+let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+let OmniCpp_ShowScopeInAbbr = 1 " show scope in abbreviation and remove the last column
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
+let OmniCpp_ShowAccess = 1 " show access
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_DisplayMode=1
+let OmniCpp_DefaultNamespaces=["std"]
+
+
+
+" C++ Setting End========================
+
+
+
+
+" Go Lang Setting Start========================
+" go get github.com/bradfitz/goimports
+" Use goimports instead of gofmt.
+let g:gofmt_command = "goimports"
+let g:go_fmt_autofmt = 1
+
+" 'dgryski/vim-godef'
+" gd: show function define
+
+" 'Blackrush/vim-gocode'
+" autocomplete
+
+" 'majutsushi/tagbar'
+" for file tags
+nmap gwm :TagbarToggle<CR>
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+
+
+" Go Lang Setting End========================
+
+
+
+
