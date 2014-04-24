@@ -1,5 +1,24 @@
+#CMake Version
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+#Project Name
 PROJECT(HELLO)
+
+#Project Install Path
+#SET(CMAKE_INSTALL_PREFIX /path)
+
+#Setting Complie Opitions
+SET(CMAKE_CXX_FLAGS "-g -Wall -Werror") 
+#or 
+#ADD_DEFINITIONS(-g -Wall -Werror)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -lrt") 
+#lpthread:thread
+#lrt:time
+
+
+
+
+
 
 ###################create normal dir#####################
 SET(ZTOPDIR ${PROJECT_SOURCE_DIR})
@@ -23,10 +42,6 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #MESSAGE(STATUS "This is exe dir:" ${EXECUTABLE_OUTPUT_PATH})
 #MESSAGE(STATUS "This is lib dir:" ${LIBRARY_OUTPUT_PATH})
 
-SET(CMAKE_CXX_FLAGS "-Wall") 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -lpthread -lrt") 
-#lpthread:thread
-#lrt:time
 
 ADD_SUBDIRECTORY(src bin)
 ADD_SUBDIRECTORY(test bin)
