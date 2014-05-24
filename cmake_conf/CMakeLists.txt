@@ -1,4 +1,27 @@
+#CMake Version
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+#Project Name
 PROJECT(HELLO)
+
+#Project Install Path
+#SET(CMAKE_INSTALL_PREFIX /path)
+
+#Complie Opitions Setting 
+SET(CMAKE_CXX_FLAGS "-g -Wall -Werror") 
+#or 
+#ADD_DEFINITIONS(-g -Wall -Werror)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lpthread -lrt") 
+#lpthread:thread
+#lrt:time
+
+#Include Directories Setting
+#INCLUDE_DIRECTORIES(...)
+
+#Link Directories Setting
+#LINK_DIRECTORIES(...)
+
+
 
 ###################create normal dir#####################
 SET(ZTOPDIR ${PROJECT_SOURCE_DIR})
@@ -22,11 +45,28 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #MESSAGE(STATUS "This is exe dir:" ${EXECUTABLE_OUTPUT_PATH})
 #MESSAGE(STATUS "This is lib dir:" ${LIBRARY_OUTPUT_PATH})
 
-SET(CMAKE_CXX_FLAGS "-Wall") 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -lpthread -lrt") 
-#lpthread:thread
-#lrt:time
 
-ADD_SUBDIRECTORY(src bin)
-ADD_SUBDIRECTORY(test bin)
-ADD_SUBDIRECTORY(test1 bin)
+#Add Sub Directories
+#ADD_SUBDIRECTORY(src bin)
+ADD_SUBDIRECTORY(test)
+ADD_SUBDIRECTORY(test1)
+
+#将当前目录下的源代码文件列表赋值给SRC_LIST
+#AUX_SOURCE_DIRECTORY(. SRC_LIST)
+
+#创建可执行文件
+#ADD_EXECUTABLE(appName ${SRC_LIST})
+#创建动态库
+#ADD_LIBRARY(libName SHARED ${SRC_LIST})
+
+#库依赖关系
+#ADD_DEPENDENCIES(litName dependLibName ...)
+
+#添加要链接的共享库
+#TARGET_LINK_LIBRARIES(xxx ...)
+
+
+
+
+
+
