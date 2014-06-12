@@ -28,6 +28,7 @@ clear_all_list()
 #add_link_lib( protobuf )
 #add_link_lib( hiredis )	
 
+#ADD_SUBDIRECTORY(src)
 	
 #build_executable( app ../bin)
 
