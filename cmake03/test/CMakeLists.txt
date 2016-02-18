@@ -9,6 +9,7 @@ INCLUDE_DIRECTORIES(.)
 
 #源文件
 AUX_SOURCE_DIRECTORY(. local_src_list)
+#SET(local_src_list "a.cc")
 
 
 
