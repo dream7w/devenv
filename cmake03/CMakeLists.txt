@@ -29,9 +29,9 @@ SET(local_project_inc_dir ${local_project_dir}/inc)
 SET(local_project_lib_dir ${local_project_dir}/lib/${CMAKE_BUILD_TYPE})
 SET(local_project_bin_dir ${local_project_dir}/bin/${CMAKE_BUILD_TYPE})
 
-FILE(REMOVE_RECURSE ${local_project_inc_dir})
-FILE(REMOVE_RECURSE ${local_project_lib_dir})
-FILE(REMOVE_RECURSE ${local_project_bin_dir})
+#FILE(REMOVE_RECURSE ${local_project_inc_dir})
+#FILE(REMOVE_RECURSE ${local_project_lib_dir})
+#FILE(REMOVE_RECURSE ${local_project_bin_dir})
 
 FILE(MAKE_DIRECTORY ${local_project_inc_dir})
 FILE(MAKE_DIRECTORY ${local_project_lib_dir})
