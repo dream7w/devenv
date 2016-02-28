@@ -23,7 +23,7 @@ set number
 "set bs=indent,eol,start         " allow backspacing over everything in insert mode
 
 "语法高亮
-"set syntax=on
+set syntax=on
 
 "Tab宽度 自动缩进字数
 set ts=2
@@ -36,6 +36,7 @@ set expandtab
 "set nobackup
 "set noswapfile
 
+set t_Co=256
 "------------------common setting end------------------
 
 
@@ -127,7 +128,10 @@ Bundle 't9md/vim-quickhl'
 " Bundle 'Lokaltog/vim-powerline'
 "commnet tool
 Bundle 'scrooloose/nerdcommenter'
-
+" colorscheme kolor
+Bundle 'zeis/vim-kolor'
+" colorscheme molokai
+Bundle 'tomasr/molokai'
 
 "..................................
 "" vim-scripts repos
@@ -144,7 +148,6 @@ Bundle 'grep.vim'
 Bundle 'winmanager'
 Bundle 'minibufexpl.vim'
 Bundle 'a.vim'
-
 
 "..................................
 filetype plugin indent on     " required
@@ -212,6 +215,7 @@ xmap <leader>hh <Plug>(quickhl-manual-reset)
 
 
 " YankRing
+let g:yankring_history_dir = '~/.vim/zconf'
 nnoremap <silent> <leader>sp :YRShow<CR>
 
 
@@ -229,6 +233,10 @@ let g:miniBufExplMapWindowNavVim=1
 " 'a.vim'
 " for .h .cc switch
 map <F12> :A<CR>
+
+
+"colorscheme molokai
+colorscheme kolor
 
 "------------------plugin setting end------------------
 
