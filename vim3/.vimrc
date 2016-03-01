@@ -83,82 +83,96 @@ map <F10> :call SetTitle()<CR>
 
 
 
-"------------------vundle start------------------
-" Install 
-"       git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"------------------NeoBundle start------------------
+ " Note: Skip initialization for vim-tiny or vim-small.
+ if 0 | endif
 
-" required settings
-set nocompatible                " be iMproved
-filetype off                    " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+ if &compatible
+   set nocompatible               " Be iMproved
+ endif
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+ " Required:
+ set runtimepath^=~/.vim/bundle/neobundle.vim/
 
-"my Bundle here:
-""
+ " Required:
+ call neobundle#begin(expand('~/.vim/bundle/'))
+
+ " Let NeoBundle manage NeoBundle
+ " Required:
+ NeoBundleFetch 'Shougo/neobundle.vim'
+
+ " My Bundles here:
+ " Refer to |:NeoBundle-examples|.
+ " Note: You don't set neobundle setting in .gvimrc!
+
+
 "..................................
 " original repos on github
 " to find files
 " :CtrlP to enter
-Bundle 'kien/ctrlp.vim'
+NeoBundle 'kien/ctrlp.vim'
 "xml edit
-Bundle 'sukima/xmledit'
+NeoBundle 'sukima/xmledit'
 "undo
-Bundle 'sjl/gundo.vim'
+NeoBundle 'sjl/gundo.vim'
 "auto add } ] etc.
-Bundle 'jiangmiao/auto-pairs'
+NeoBundle 'jiangmiao/auto-pairs'
 "python vim env
-Bundle 'klen/python-mode'
+NeoBundle 'klen/python-mode'
 "Snippets are intelligent text that spares you a lot of typing
-Bundle 'SirVer/ultisnips'
-Bundle 'scrooloose/syntastic'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'scrooloose/syntastic'
 "go .vim/bundle/YouCompleteMe to execute ./install.py --clang-completer
 "or you had to yum install -y python-devel
-Bundle 'Valloric/ListToggle'
-Bundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/ListToggle'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'rdnetto/YCM-Generator'
 "to generates a list of compiler flags from a project with an arbitrary build
 "system for YouCompleteMe
 "can't use
 " Bundle 'rdnetto/YCM-Generator'
 "high light
-Bundle 't9md/vim-quickhl'
+NeoBundle 't9md/vim-quickhl'
 "status bar
 " Bundle 'Lokaltog/vim-powerline'
 "commnet tool
-Bundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdcommenter'
 " colorscheme kolor
-Bundle 'zeis/vim-kolor'
+NeoBundle 'zeis/vim-kolor'
 " colorscheme molokai
-Bundle 'tomasr/molokai'
+NeoBundle 'tomasr/molokai'
 
 "..................................
 "" vim-scripts repos
 " multi word paste
-Bundle 'YankRing.vim'
+NeoBundle 'YankRing.vim'
 " svn csv command
-Bundle 'vcscommand.vim'
-Bundle 'ShowPairs'
-Bundle 'SudoEdit.vim'
+NeoBundle 'vcscommand.vim'
+NeoBundle 'ShowPairs'
+NeoBundle 'SudoEdit.vim'
 "Bundle 'EasyGrep'
-Bundle 'grep.vim'
+NeoBundle 'grep.vim'
 "Bundle 'VOoM'
 "Bundle 'VimIM'
-Bundle 'winmanager'
-Bundle 'minibufexpl.vim'
-Bundle 'a.vim'
+NeoBundle 'winmanager'
+NeoBundle 'minibufexpl.vim'
+NeoBundle 'a.vim'
 
-"..................................
-filetype plugin indent on     " required
 
-" Use
-"       ReLaunch vim
-"       BundleInstall
-"       BundleUpdate
-"       BundleClean
-" Put your stuff after this line
-"------------------vundle end------------------
+
+
+ call neobundle#end()
+
+ " Required:
+ filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
+ NeoBundleCheck
+
+
+
+"------------------NeoBundle end------------------
 
 
 "------------------plugin setting start------------------
@@ -180,7 +194,7 @@ let g:gundo_right = 1
 
 " YouCompleteMe
 " default conf
-let g:ycm_global_ycm_extra_conf = '~/.vim/zconf/.ycm_extra_conf.py' 
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' 
 " do not to confirm when open vim
 let g:ycm_confirm_extra_conf = 0
 
@@ -194,6 +208,7 @@ nnoremap <leader>ye :YcmDiags<CR>
 " nmap <F4> :YcmDiags<CR>
 " force to recompile files
 nnoremap <leader>yr :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>yc :YcmGenerateConfig<CR>
 
 
 " high light
