@@ -198,6 +198,9 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/
 " do not to confirm when open vim
 let g:ycm_confirm_extra_conf = 0
 
+" set completeopt=longest,menu "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif ""离开插入模式后自动关闭预览窗口
+
 " go to declaration or definition
 " after jumped use Ctrl+o to jump back or Ctro+i to jump forward
 nnoremap <leader>yd :YcmCompleter GoToDeclaration<CR>
@@ -250,8 +253,8 @@ let g:miniBufExplMapWindowNavVim=1
 map <F12> :A<CR>
 
 
-"colorscheme molokai
-colorscheme kolor
+colorscheme molokai
+"colorscheme kolor
 
 "------------------plugin setting end------------------
 
