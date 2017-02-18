@@ -24,6 +24,8 @@ SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -o0 -g -ggdb ${local_common_flags}")
 
 
 #required: project dir
+#PROJECT_SOURCE_DIR:cmake 后面的路径
+#PROJECT_BINARY_DIR:cmake 执行时路径
 SET(local_project_dir ${PROJECT_SOURCE_DIR})
 SET(local_project_inc_dir ${local_project_dir}/inc)
 SET(local_project_lib_dir ${local_project_dir}/lib/${CMAKE_BUILD_TYPE})
